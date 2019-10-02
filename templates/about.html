@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<style type="text/css">
+    ol {
+    counter-reset: li; /* Initiate a counter */
+    list-style: none; /* Remove default numbering */
+    *list-style: decimal; /* Keep using default numbering for IE6/7 */
+    font: 15px 'trebuchet MS', 'lucida sans';
+    padding: 0;
+    margin-bottom: 4em;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+
+ol ol {
+    margin: 0 0 0 2em; /* Add some left margin for inner lists */
+}
+
+.rounded-list a{
+    position: relative;
+    display: block;
+    padding: .4em .4em .4em 2em;
+    *padding: .4em;
+    margin: .5em 0;
+    background: #f5f5f0;
+    color: #444;
+    text-decoration: none;
+    border-radius: .3em;
+    transition: all .3s ease-out;   
+}
+
+.rounded-list a:hover{
+    background: #eee;
+}
+
+.rounded-list a:hover:before{
+    transform: rotate(360deg);  
+}
+
+.rounded-list a:before{
+    content: counter(li);
+    counter-increment: li;
+    position: absolute; 
+    left: -1.3em;
+    top: 50%;
+    margin-top: -1.3em;
+    background: #87ceeb;
+    height: 2em;
+    width: 2em;
+    line-height: 2em;
+    border: .3em solid #fff;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 2em;
+    transition: all .3s ease-out;
+}
+</style>
+            <!-- BEGIN: PAGE CONTENT -->
+            <!-- BEGIN: LAYOUT/SLIDERS/REVO-SLIDER-9 -->
+            <!-- BEGIN: CONTENT/MISC/ABOUT-3 -->
+               <!-- BEGIN: LAYOUT/BREADCRUMBS/BREADCRUMBS-3 -->
+          <section id="inner-headline" style="background-color: white">
+    <div class="container" >
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="pageTitle">About Us</h2>
+            </div>
+        </div>
+    </div>
+    </section>
+            <!-- END: LAYOUT/BREADCRUMBS/BREADCRUMBS-3 -->
+            <div class="c-content-box c-size-md c-bg-white" style="background-color: white">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 wow animate fadeInLeft">
+                            <!-- Begin: Title 1 component -->
+                            <div class="c-content-title-1">
+                                <h3 class="c-font-uppercase c-font-bold">Who we are</h3>
+                                <div class="c-line-left c-theme-bg"></div>
+                            </div>
+                            <!-- End-->
+                            <p>Gem Famers Centre was formed under strong foundation to transform lives of people through community partnership. </p>
+                            <p>Its mission is to initiate and promote development programs within the community in order to achieve the Millenium Development Goals, Sustain Development Goals and Kenya Vision 2030.</p>
+                            <p> It has now grown to cover the whole Nyanza, parts of Western and North Eastern region through partnership with various groups, Individual Farmers, NGOs, Government departments, National and International Community. Some of the partners have extended our activities to Somali and Southern Sudan to assist them in Disaster Management in various sectors, majorly in Agriculture. </p>
+                           
+                        </div>
+                        <div class="col-sm-6 wow animate fadeInRight">
+                            <div class="c-content-tab-4 c-opt-3" role="tabpanel">
+                                <ul class="nav nav-justified" role="tablist">
+                                    <li role="presentation" class="active">
+                                        <a href="#tab-31" role="tab" data-toggle="tab" class="c-font-16"></a>
+                                    </li>
+                                   
+                                </ul>
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane fade in active" id="tab-31">
+                                        <ul class="c-tab-items">
+                                            <li class="row">
+                                                <div class="col-md-4 hidden-xs hidden-sm">
+                                                    <div class="c-photo">
+                                                        <img class="img-responsive" width="150" height="100" src="{% static 'assets/images/1.jpg' %}" alt="" /> </div>
+                                                </div>
+                                                <div class="col-md-8 col-sm-12 col-xs-12 ">
+                                                    <h4 class="c-font-20">Mission Statement</h4>
+                                                    <p class="c-font-16">Provide policies and initiatives to accelerate the growth of viable projects for socio economic development in the community.</p>
+                                                </div>
+                                            </li>
+
+                                            <li class="row">
+                                                <div class="col-sm-4  hidden-xs hidden-sm">
+                                                    <div class="c-photo">
+                                                        <img class="img-responsive" width="150" height="100" src="{% static 'assets/images/6.jpg' %}" alt="" /> </div>
+                                                </div>
+                                                <div class="col-md-8 col-sm-12 col-xs-12">
+                                                    <h4 class="c-font-20">Vision </h4>
+                                                    <p class="c-font-16">To be the leading entrepreneur in transforming and improving lives of the people through community partnership.</p>
+                                                </div>
+                                            </li>
+                                            <li class="row">
+                                                <div class="col-md-4  hidden-xs hidden-sm">
+                                                    <div class="c-photo">
+                                                        <img class="img-responsive" width="150" height="100" src="{% static 'assets/images/7.jpg' %}" alt="" /> </div>
+                                                </div>
+                                                <div class="col-md-8 col-sm-12 col-xs-12 ">
+                                                    <h4 class="c-font-20">Objective</h4>
+                                                    <p class="c-font-16">Maximizing the opportunities and resources available to achieve Sustainable Development Goals
+</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                  
+                             
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>OUR ACHIEVEMENTS</h3>
+                        <ul style="list-style-type:disc" >
+                        <div class="row">
+                        {% for achievement in achievements %}
+                        <div class="col-md-6 col-sm-12 col-xs-6">
+                        <li style="list-style-type:disc"> {{achievement.achievement}}</li>
+                        </div>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- END: CONTENT/MISC/ABOUT-3 -->
+{% endblock %}

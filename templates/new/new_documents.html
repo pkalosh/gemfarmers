@@ -1,0 +1,62 @@
+{% extends 'new/base.html' %}
+{% block content %}
+<section class="pad-t80 pad-b50">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 mb10">
+                <div class=" left mb10 text-center">
+                <h3 style="font-size: 34px;color: #93c83f;">Documents Available for download</h3>
+            </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    <section class="pad-t10 pad-b10">
+    <div class="row" style="min-height: 200px; background-color: white;">
+<div class="col-md-2">
+</div>
+  <div class="col-md-8" >
+   <div class="table-responsive">
+   {% if documents %}
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                    <thead>
+                                        <tr>
+                                            <th>Document Name</th>
+                                            <th>Download</th>
+                                            
+                                           
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody>
+                                    
+                                    {% for job in documents %}
+                                        <tr>
+                                            <td>{{job.doc_name}}</td>
+                                            <td><a href="{{ MEDIA_URL }}{{job.document.url}}" target="_blank" class="button btn btn-primary" style="float: right;">View</a></td>
+                                            
+                                            
+                                             
+                                        </tr>
+                                    {% endfor %}
+                                    
+                                        
+                                        
+                                    </tbody>
+                                </table>
+                                {% else %}
+                                    <h3>No documents Available for Download</h3>
+                                    
+                                {% endif %}
+                            </div>
+                            </div>
+                            <div class="col-md-2">
+                            </div>
+           
+      
+          </div> 
+      </section>
+
+         {% endblock %}
+
+   

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap4 %}
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+
+{% load i18n %}
+{% block content %}
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script type="text/javascript" src="{% static '/smart-selects/admin/js/chainedfk.js' %}"></script>
+<script type="text/javascript" src="{% static '/smart-selects/admin/js/bindfields.js' %}"></script>
+
+ <div class="c-layout-breadcrumbs-1 c-fonts-uppercase c-fonts-bold c-bordered c-bordered-both" style=" background-color: white">
+                <div class="container">
+                    <div class="c-page-title c-pull-left">
+                        <h3 class="c-font-uppercase c-font-sbold">Update Profile</h3>
+                    </div>
+                    
+                </div>
+            </div>
+<div class="row" style="min-height: 300px; background-color: white">
+
+  <div class="col-md-3">
+</div>
+<div class="col-md-6">
+<div class="well" style=" background-color: white">
+ 
+<form method="post" role="form" method="post" action="." class="contact_form">
+    {% csrf_token %}
+
+{% bootstrap_form form %}
+
+<input type="submit" class="col-xs-12 btn btn-success btn-load btn-lg" data-loading-text="Verifying Email..." value="Submit">
+</form>
+</div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'account/base.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% load i18n %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+
+{% block content %}
+<div class="row">
+  <div class="col-md-3">
+</div>
+<div class="col-md-9">
+
+<div class="well" >
+<h2>Sign Up Here </h2>
+<div class="well" style="background-color:white;">
+<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+ {% csrf_token %}
+    {% bootstrap_form form %}
+    <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+    {% buttons %}
+        <button type="submit" class="btn btn-theme btn-block">
+            {% trans "Sign Up" %}
+        </button>
+    {% endbuttons %}
+    
+  {% if redirect_field_value %}
+  <input type="hidden"class="button btn btn-primary" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  
+</form>
+  </div>
+</div>
+</div>
+</div>
+{% endblock %}

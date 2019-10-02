@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+            <!-- BEGIN: PAGE CONTENT -->
+            <!-- BEGIN: LAYOUT/SLIDERS/REVO-SLIDER-9 -->
+            <!-- BEGIN: CONTENT/MISC/ABOUT-3 -->
+            <!-- BEGIN: CONTENT/MISC/ABOUT-2 -->
+            <!-- BEGIN: FEATURES 13.4 -->
+                      <section id="inner-headline" style="background-color: white">
+    <div class="container" >
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="pageTitle">Our Regional Contacts</h2>
+            </div>
+        </div>
+    </div>
+    </section>
+                    <div class="c-content-feature-13" style="text-align: center; min-height: 300px; background-color: white">
+                        <div class="row">
+                            <div class="col-md-12  c-bg-white">
+                                <div class="c-feature-13-container">
+                                    <div class="c-content-title-1">
+                                        <h4 class="c-font-uppercase c-font-bold">Below are our
+                                            <span class="c-theme-font">Regional offices contacts</span>
+                                        </h4>
+                                        <div class="c-line-left c-theme-bg"></div>
+                                    </div>
+                                    <div class="row">
+                                    {% for contact in contacts %}
+
+                        <div class="col-md-4 col-sm-12 col-xs-12">
+                       
+                                        <div class="c-feature-13-tile">
+                                            
+                                            
+                                                <h4 class="c-font-uppercase c-theme-font c-font-bold" style="color: #39ac39;">{{contact.region}}</h4>
+                                                <p class="c-font-dark"><b>Contact Person/Office:</b> {{contact.contact_person}}</p>
+                                                <p class="c-font-dark"><b>Contact: </b>{{contact.contact}}</p>
+                                           
+                                        </div>
+                                        </div>
+                                    {% endfor %}
+                                       
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                <!-- END: FEATURES 13-4 -->
+                <!-- END: CONTENT/FEATURES/FEATURES-13-4 -->
+              
+                            <!-- End-->
+            <!-- END: CONTENT/MISC/ABOUT-2 -->
+{% endblock %}

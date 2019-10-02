@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+	<!-- end header -->
+	     <style type="text/css">
+            .well {
+   background-color: rgba(100, 200, 245, 0.2);
+}
+}
+        </style>
+	<section id="banner">
+	 
+	<!-- Slider -->
+        <div id="main-slider" class="flexslider">
+            <ul class="slides">
+            {% for slide in sliders %}
+              <li>
+                <img src="{{ slide.image.url}}" alt="" />
+                <div class="flex-caption well">
+                    <h3>{{slide.image_title}}</h3> 
+					<p>{{slide.image_description}}</p> 
+					 
+                </div>
+              </li>
+              {% endfor %}
+            </ul>
+        </div>
+	<!-- end slider --> 
+	</section>  
+	 	<section id="content"> 
+	<div class="container">
+	
+		<section class="services">
+	    	<div class="row">
+			<div class="col-md-12">
+				<div class="aligncenter"><h2 class="aligncenter">Who we are</h2>Gem Famers Centre was formed under strong foundation to transform lives of people through community partnership.
+
+ <br/>Its mission is to initiate and promote development programs within the community in order to achieve the Mil,lennium Development Goals, Sustain Development Goals and Kenya Vision 2030 <a href="{% url 'about_us' }%">Read more....</a></div>
+				<br/>
+			</div>
+		</div>
+<div class="row">
+<div class="col-md-12">
+<h2 class="aligncenter">Our Key Services</h2>
+</div>
+</div>
+	 <div class="row">
+
+            <div class="col-md-4 col-xs-12 info-blocks">  
+                <div class="info-blocks-in">
+				<i class="icon-info-blocks material-icons">perm_identity</i>
+                    <h3>Agribusiness</h3>
+					<div class="line"></div>
+                    <p>Network with farmers, advise farmers on modern farming techniques, offer labor, create market to farm produce</p>
+                       <a href="{% url 'our_services' %}" class="btn btn-success">Read More</a>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12 info-blocks"> 
+                <div class="info-blocks-in">
+				 <i class="icon-info-blocks material-icons">card_travel</i>
+                    <h3>Agroforestry</h3>
+					<div class="line"></div>
+                    <p>Setting up tree nurseries for selling seedlings, plant trees, offer market for timber, give advise on types of trees to be planted. </p>
+                       <a href="{% url 'our_services' %}" class="btn btn-success">Read More</a>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12 info-blocks">
+                <div class="info-blocks-in">
+                <i class="icon-info-blocks material-icons">important_devices</i>
+                    <h3>Sales and MArketing Services</h3>
+					<div class="line"></div>
+                    <p>Open Business Malls where producers are able to their customers direct</p>
+                       <a href="{% url 'our_services' %}" class="btn btn-success">Read More</a>
+                </div>
+            </div>
+        </div> 
+		</section>
+	</div>
+	</section>
+		
+
+	
+	<section class="section-padding gray-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class=" text-center">
+						<h2>Members Benefits</h2>
+						<p>We have different membership categories each with it's own benefits. Interested parties can either register with us then join different membership categories.</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-sm-12 col-xs-12">
+					
+						<p>Below are some of the membership Categories you can join upon registration.</p>
+<p><b>Benefits to registered Farmers</b></p>
+
+<p>Registered farmers get an access to our various premium services including extension services, quality seeds, modern technology, networking with other farmers, sales and marketing for farm products.
+Register Now</p>
+
+<p><b>Benefits to registered Students</b></p>
+
+<p>We help students registered with us secure attachments/internship positions in our numerous partner organizations and idustries. We also advise them on how to create jobs and employment among themselves</p> 
+Other categories include:
+						<ul class="withArrow">
+						<li><span class="fa fa-angle-right"></span> <b>Consultants</b></li>
+						Create job opportunity; link them to clients, opportunity for research 
+						<li><span class="fa fa-angle-right"></span><b> Entrepreneurs</b></li>
+						Will be linked to clients both suppliers and buyers, financial services, opportunities in the market.
+							<li><span class="fa fa-angle-right"></span> <b>Consumers</b></li>
+							Will be linked to suppliers or sellers, advise on price trend in the market, quality goods and services
+							<li><span class="fa fa-angle-right"></span> <b>Institutions</b></li>
+							Education for sustainable development, Income development projects, offer research centres, link to the community, increase student population, advise students on matters pertaining education, discipline, job opportunities, attachments
+							<li><span class="fa fa-angle-right"></span> <b>Industries</b></li>
+							Will be linked to suppliers and consumers, market research, consumer/suppliers feedback
+						</ul>
+				
+				</div>
+				<div class="col-md-6 col-sm-6 hidden-xs hidden-sm">
+					<div class="about-image">
+						<img src="{% static 'img/7.jpg' %}" alt="About Images">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>	
+	{% endblock %}
+ 

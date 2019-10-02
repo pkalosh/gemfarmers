@@ -1,0 +1,37 @@
+{% url 'new_index' as new_index_url %}
+{% url 'new_about_us' as new_about_us_url %}
+{% url 'new_services' as new_services_url %}
+{% url 'new_hub' as new_hub_url %}
+{% url 'new_contacts' as new_contacts_url %}
+{% url 'new_documents' as new_documents_url %}
+{% url 'new_blog' as new_blog_url %}
+{% load static %}
+
+
+
+<nav class="navbar navbar-default">
+     
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img alt="" src="{% static 'img/logo.png' %}"></a>
+           
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li class="{% if request.path == new_index_url %} active {% endif %}" ><a href="{{ new_index_url }}">Home</a></li>
+                <li class="{% if request.path == new_about_us_url %} active {% endif %}"><a href="{{ new_about_us_url }}">About Us</a></li>
+                <li class="{% if request.path == new_services_url %} active {% endif %}"><a href="{{ new_services_url }}">Services</a></li>
+                <li class="{% if request.path == new_hub_url %} active {% endif %}"><a href="{{ new_hub_url }}">Business Hub</a></li>
+                <li class="{% if request.path == new_contacts_url %} active {% endif %}"><a href="{{ new_contacts_url }}">Regional Contacts</a></li>
+                <li class="{% if request.path == new_documents_url %} active {% endif %}"><a href="{{ new_documents_url }}">Downloads</a></li>
+                <li class="{% if request.path == new_blog_url %} active {% endif %}"><a href="{{ new_blog_url }}">Blog</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

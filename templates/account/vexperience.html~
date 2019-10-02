@@ -1,0 +1,36 @@
+{% extends 'klmis/jdashboard.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% block content %}
+
+<div class="well">
+<a href="{% url 'volunteer_myprofile' %}" class="button btn btn-primary btn-sm">Back</a>
+{% block messsages %}    
+
+ 
+    
+    {% if messages %}
+	{% for message in messages %}
+	
+    <div class="alert alert-success ">
+    <p>{{message}}</p>
+     </div>
+    
+	{% endfor %}
+      
+    {% endif %}
+    
+  {% endblock %}{# end messages block section #}
+<form  method="POST" action="." class="form">
+    <legend>Update your Work Experience</legend>
+ {% csrf_token %}
+{% bootstrap_form uform %}
+{% buttons %}
+    <button type="submit" class="btn btn-theme btn-block">
+      {% bootstrap_icon "glyphicon glyphicon-hand-up" %} Update
+    </button>
+  {% endbuttons %}
+</form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends 'new/base.html' %}
+{% load static %}
+{% block content %}
+       <section class="pad-t100 pad-b70">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 mb30">
+                        <div class=" left mb50 text-center">
+                            <h3 style="color: #93c83f;">GEM FARMERS BUSINESS HUBS</h3>
+                        </div>
+                        <p style="font-weight: 20px">Here, we give farmers opportunity to bring their products and sell them direct to customers without passing through middle men. To find a market for your produce, search here by the type of your produce and the county. A list of Agents dealing with the same product in the chosen county will also get displayed below the market list.</p>
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 mb30">
+                <form class="mx-2 my-auto d-inline w-100" action="."  method="post">
+                 {% csrf_token %}
+                 <div class="row" style="float: center; text-align: center; pu">
+                <div class="input-group">
+
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                <select required name="county" id="county" class="form-control" >
+                <option value="" selected disabled class="form-control" >Select County</option>
+                {% for county in counties %}
+                <option value="{{county.id}}" class="form-control" required>{{county.county}}</option>
+                {% endfor%}
+                </select>
+                </div>
+                <div class="col-md-6 col-sm-4 col-xs-4">
+                <input type="text" class="form-control" name="produce" id="produce" placeholder="What's your Product?" required>
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-4">
+                <span class="input-group-btn">
+                <button class="btn btn-success " type="submit">Find Market</button>
+                </span>
+                </div>
+                </div>
+                </div>
+
+
+                </form>
+            </div>
+                    
+                </div>
+                <div class="row">
+                        {% if hubs %}
+                        <h3 style="color: #39ac39;">Market Centers for {{hub}} at {{search_county}} County</h3>
+                        {% endif %}
+                        {% for hub in hubs %}
+                            <div class="col-md-4 col-sm-6">
+                               
+                                    
+                                    <h3 class="c-font-uppercase c-font-bold c-title" style="color: #39ac39;">{{hub.market_name}}</h3>
+                                    <p><b>Product:</b> {{hub.product}}</p>
+                                    <p><b>County:</b> {{hub.count}}</p>
+                                    <p><b>Sub County:</b> {{hub.sub_county}}</p>
+                                    <p><b>Division:</b> {{hub.division}}</p>
+                                    <p><b>Town:</b> {{hub.town}}</p>
+                                    <p><b>Contact Person:</b> {{hub.contact_person}}</p>
+                                    <p><b>Email:</b> {{hub.contact_person_email}}</p>
+                                    <p><b>Phone Number:</b> {{hub.contact_person_phone}}</p>
+                                    <p><b>Facebook:</b> {{hub.contact_facebook_account}}</p>
+                                    <p><b>Telegram:</b> {{hub.contact_telegram_account}}</p>
+                       
+                            </div>
+                            {% endfor %}
+                            
+                        </div>
+            
+          
+
+
+ <div class="row">
+                        {% if agents %}
+                        <h3 style="color: #39ac39;">Agents Dealing with  {{hub}} at {{search_county}} County</h3>
+                        {% endif %}
+                        {% for hub in agents %}
+                            <div class="col-md-4 col-sm-6">
+                               
+                                    
+                                    <h3 class="c-font-uppercase c-font-bold c-title" style="color: #39ac39;">{{hub.market_name}}</h3>
+                                    <p><b>Product:</b> {{hub.product}}</p>
+                                    <p><b>County:</b> {{hub.count}}</p>
+                                    <p><b>Sub County:</b> {{hub.sub_county}}</p>
+                                    <p><b>Division:</b> {{hub.division}}</p>
+                                    <p><b>Town:</b> {{hub.town}}</p>
+                                    <p><b>Contact Person:</b> {{hub.contact_person}}</p>
+                                    <p><b>Email:</b> {{hub.contact_person_email}}</p>
+                                    <p><b>Phone Number:</b> {{hub.contact_person_phone}}</p>
+                                    <p><b>Facebook:</b> {{hub.contact_facebook_account}}</p>
+                                    <p><b>Telegram:</b> {{hub.contact_telegram_account}}</p>
+                       
+                            </div>
+                            {% endfor %}
+                            
+                        </div>
+            </div>
+        </section>
+
+       
+   
+{% endblock %}

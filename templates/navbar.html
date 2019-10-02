@@ -1,0 +1,106 @@
+{% load staticfiles %}
+<header class="topbar" style="background-color:#93c83f; color: white;">
+		<div class="container">
+			<div class="row">
+				<!-- social icon-->
+				<div class="col-sm-3">
+				   <ul class="social-network">
+					<li><a class="waves-effect" href="#" style="color: white"><i class="fa fa-facebook"></i></a></li>
+					<li><a class="waves-effect" href="#" style="color: white"><i class="fa fa-twitter"></i></a></li>
+				
+				</ul>
+				</div>
+				<div class="col-sm-9">
+					<div class="row">
+						<ul class="info" style="margin-top: "> 
+							{% if user.is_authenticated %}
+                            
+
+                             <li>
+                                <a href="{% url 'dashboard' %}" style="color: white" >My Dashboard</a>
+                            </li>
+                            <li class="c-divider"></li>
+                            <li>
+                                <a href="{% url 'account_logout' %}" style="color: white">Sign Out</a>
+                            </li>
+                            {% else %}
+                           <li>
+                                <a href="{% url 'signup' %}" style="color: white" >Register</a>
+                            </li>
+
+                            <li>
+                                <a href="{% url 'account_login' %}" style="color: white" >Sign In</a>
+                            </li>
+                            {% endif %}
+						</ul>
+					
+					</div>
+				</div>
+				<!-- info -->
+
+			</div>
+		</div>
+	</header>
+		
+	<!-- start header -->
+	<header>
+        <div class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/"><img src="{% static 'img/logo.png' %}" style="margin-top: -11px;"><span style="color: #93c83f" class="hidden-xs hidden-sm"> GEM FARMERS CENTER</span></a>
+                </div>
+                <div class="navbar-collapse collapse ">
+                    <ul class="nav navbar-nav">
+                       
+						<li class="{% if nbar == 'home' %}active{% endif %}">
+                                    <a href="/" class="waves-effect waves-dark">Home
+                                       
+                                    </a>
+                                </li>
+                                <li class="{% if request.resolver_match.url_name == 'about_us' %}active{% endif %}">
+                                    <a href="{% url 'about_us' %}" class="waves-effect waves-dark">About Us
+                                      
+                                    </a>
+                                </li>
+                                <li class="{% if request.resolver_match.url_name == 'our_services' %}active{% endif %}">
+                                    <a href="{% url 'our_services' %}" class="waves-effect waves-dark">Services
+                                     
+                                    </a>
+                                </li>
+                               
+                                
+                                <li class="{% if request.resolver_match.url_name == 'business_hub' %}active{% endif %}">
+                                    <a href="{% url 'business_hub' %}" class="waves-effect waves-dark ">Business Hub
+                                        
+                                    </a>
+                                   
+                                    <!-- END: MOBILE VERSION OF THE TAB MEGA MENU -->
+                                </li>
+
+                                 <li class="{% if request.resolver_match.url_name == 'contacts' %}active{% endif %}">
+                                    <a href="{% url 'contacts' %}" class="waves-effect waves-dark">Regional Contacts
+                                     
+                                    </a>
+                                </li>
+                                <li class="{% if request.resolver_match.url_name == 'documents' %}active{% endif %}">
+                                    <a href="{% url 'documents' %}" class="waves-effect waves-dark">Downloads
+                                      
+                                    </a>
+                                
+                                </li>
+                                <li class="{% if request.resolver_match.url_name == 'our_blog' %}active{% endif %}">
+                                    <a href="{% url 'our_blog' %}" class="waves-effect waves-dark">Blog
+                                      
+                                    </a>
+                                
+                                </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</header>

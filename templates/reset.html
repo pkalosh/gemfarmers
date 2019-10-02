@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap4 %}
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+
+{% load i18n %}
+{% block content %}
+ <div class="c-layout-breadcrumbs-1 c-fonts-uppercase c-fonts-bold c-bordered c-bordered-both">
+                <div class="container">
+                    <div class="c-page-title c-pull-left">
+                        <h3 class="c-font-uppercase c-font-sbold">Reset Password</h3>
+                    </div>
+                    
+                </div>
+            </div>
+<div class="row" style="min-height: 300px;">
+
+  <div class="col-md-3">
+</div>
+<div class="col-md-6">
+
+ 
+<form method="post" role="form" method="post" action="{% url 'resetpassword' %}" class="contact_form">
+    {% csrf_token %}
+{% bootstrap_form form %}
+<input type="submit" class="col-xs-12 btn btn-success btn-load btn-lg" data-loading-text="Verifying Email..." value="Submit Email">
+</form>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+            <!-- BEGIN: PAGE CONTENT -->
+            <!-- BEGIN: LAYOUT/SLIDERS/REVO-SLIDER-9 -->
+            <!-- BEGIN: CONTENT/MISC/ABOUT-3 -->
+            <!-- BEGIN: CONTENT/MISC/ABOUT-2 -->
+              <section id="inner-headline" style="background-color: white">
+    <div class="container" >
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="pageTitle">Our Services</h2>
+            </div>
+        </div>
+    </div>
+    </section>
+            <div class="c-content-box c-size-md c-bg-white" style="background-color: white">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 wow animate fadeInUp" style="text-align: center;">
+                            <p>We offer the full spectrum of services to help transform communities. Everything from  of  training farmers to work in more effective ways to helping them market their farm produce. Very few others do this. </p>
+                           
+                        </div>
+                    </div>
+                    <div class="c-content-title-1 c-center">
+                        <h3 class="c-font-uppercase c-font-bold">Services We Do</h3>
+                        <div class="c-line-center"></div>
+                    </div>
+                    <div class="row">
+                     <ul class="c-content-list-1 c-theme c-separator-dot c-font-uppercase">
+                    {% for service in services %}
+                        <div class="col-sm-4 wow animate fadeInUp">
+                           
+                                <li style="list-style-type:disc">{{service.service}}</li>
+                               
+                          
+                        </div>
+                        {% endfor %}
+                          </ul>
+                      
+                    </div>
+                </div>
+            </div>
+            <!-- END: CONTENT/MISC/ABOUT-2 -->
+{% endblock %}

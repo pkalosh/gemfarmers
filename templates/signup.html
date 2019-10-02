@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+ <div class="c-layout-breadcrumbs-1 c-fonts-uppercase c-fonts-bold c-bordered c-bordered-both">
+                <div class="container">
+                    <div class="c-page-title c-pull-left">
+                        <h3 class="c-font-uppercase c-font-sbold">Signup</h3>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+
+                <div class="container" style="padding-top: 50px;  min-height: 400px;">
+                    <div class="row">
+                        <div class="col-sm-12 wow animate fadeInUp" style="text-align: center;">
+                            <p>We have two broader caterories of  membership plans. </p>
+                            
+                        <div class="col-md-6">
+                        <p><b>Individual Level Membership</b></p>
+                            Registering as an Individual gives you a chance to join our different membership groups. This groups include:
+                            <ul>
+                                <li>Farmers Group, Students Group,Consultants Group, Entrepreneur Group, Consumers  Group</li>
+                            </ul>
+                            <p><a href="{% url 'account_signup' %}" class="button btn btn-success">Register Now</a></p>
+                           </div>
+                           <div class="col-md-6">
+                           <p><b>Institutional Level Membership</b></p>
+                            <p> This caetories comparises of  Primary schools, secondary schools, colleges/tertiaries, universities. We offer Education for sustainable development and advice on Income development projects for these institutions
+</p>
+                              <ul>
+                                
+                                <li>Institutions</li>
+                               
+                            </ul>
+                             <p><a href="{% url 'add_institution' %}" class="button btn btn-success">Register Now</a></p>
+                           </div>
+           
+                           
+                        </div>
+                    </div>
+                    
+                    <!-- BEGIN: CONTENT/MISC/SERVICES-1 -->
+         
+             
+              
+           
+          
+
+
+            
+            <!-- END: CONTENT/MISC/SERVICES-1 -->
+                </div>
+          </div>
+
+{% endblock %}

@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap4 %}
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+
+{% load i18n %}
+{% block content %}
+              <section id="inner-headline" style="background-color: white">
+    <div class="container" >
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="pageTitle">Dashboard</h2>
+            </div>
+        </div>
+    </div>
+    </section>
+<div class="row" style="min-height: 350px; background-color: white;">
+
+  <div class="col-md-3">
+</div>
+<div class="col-md-6">
+<div class="well" style="min-height: 350px; background-color: white;">
+{% if user.institution %}
+<h3 class="c-font-uppercase c-font-sbold">{{user.institution.name}}</h3>
+<table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Name:</td>
+                        <td>{{user.institution.name}} </td>
+                      </tr>
+                      <tr>
+                        <td>Phone Number:</td>
+                        <td>{{user.email}}</td>
+                      </tr>
+                      <tr>
+                        <td>Phone Number:</td>
+                        <td>{{user.institution.cell}}</td>
+                      </tr>
+                       
+                      <tr>
+                        <td>Twitter:</td>
+                        <td>{{user.institution.twitter_link}}</td>
+                      </tr>
+                        <td>Facebook:</td>
+                        <td>{{user.institution.facebook_link}}
+                        </td>
+                           
+                      </tr>
+                      </tr>
+                        <td>Locality:</td>
+                        <td>{{user.institution.county}} County, {{user.institution.sub_county}} Sub County, {{user.institution.Town}} 
+                        </td>
+                           
+                      </tr>
+             
+                        
+                    </tbody>
+                  </table>
+            <a href="{% url 'update_institution' %}" class="btn btn-success">Update Details</a>      
+
+{% else %}
+<h3 class="c-font-uppercase c-font-sbold">{{user.first_name}} {{user.last_name}}</h3>
+                
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Name:</td>
+                        <td>{{user.first_name}} {{user.last_name}}</td>
+                      </tr>
+                      <tr>
+                        <td>Email:</td>
+                        <td>{{user.email}}</td>
+                      </tr>
+                      
+                      
+                      <tr>
+                        <td>Phone Number:</td>
+                        <td>{{user.profile.cell}}</td>
+                      </tr>
+                   
+                         <tr>
+                             <tr>
+                        <td>ID Nmber:</td>
+                        <td>{{user.profile.id_number}}</td>
+                      </tr>
+
+                       
+                      <tr>
+                        <td>Twitter:</td>
+                        <td>{{user.profile.twitter_link}}</td>
+                      </tr>
+                        <td>Facebook:</td>
+                        <td>{{user.profile.facebook_link}}
+                        </td>
+                           
+                      </tr>
+                      </tr>
+                        <td>Locality:</td>
+                        <td>{{user.profile.county}} County, {{user.profile.sub_county}} Sub County, {{user.profile.Town}} Toen County, {{user.profile.market_center}}
+                        </td>
+                           
+                      </tr>
+             
+                        
+                    </tbody>
+                  </table>
+                  
+                  
+                </div>
+                <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <a href="{% url 'update_profile' %}" class="btn btn-success">Update Profile</a>
+                    <hr  class="hidden-lg hidde-md" />
+                  </div>
+                  <div class="col-md-6 col-xs-12">
+                  {% if user.farmer %}
+                    <a href="{% url 'farmer_details' %}" class="btn btn-success">Update your Farmers Details</a>
+                  {% else %}
+                  <a href="{% url 'farmer_details' %}" class="btn btn-success">Join Farmers Group</a>
+                  {% endif %}
+                  </div>
+                  </div>
+                   <div class="row">
+                  <div class="col-md-6 col-xs-12">
+                  {% if user.student %}
+                    <a href="{% url 'student_details' %}" class="btn btn-success">Update your Student's Details</a>
+                    {% else %}
+                    
+                    <a href="{% url 'student_details' %}" class="btn btn-success">Join Students Group</a>
+                    {% endif %}
+                    <hr  class="hidden-lg hidde-md" />
+                  </div>
+                  <div class="col-md-6 col-xs-12">
+                  {% if user.expert %}
+                    <a href="" class="btn btn-success">You Joined Consultants Group</a>
+                  {% else %}
+                   <a href="{% url 'expert_details' %}" class="btn btn-success">Experts/Consultants Group</a>
+                   {% endif %}
+                  </div>
+                </div>
+
+
+                <div class="row">
+                  <div class="col-md-6 col-xs-12">
+                  {% if user.entrepreneur %}
+                   
+                   
+                     <a href="{% url 'entreprenuer_details' %}" class="btn btn-primary">Update Entrepreneur's Details</a>
+                    {% else %}
+                    
+                     <a href="{% url 'entreprenuer_details' %}" class="btn btn-success">Join Enterpreneurs Group</a>
+                    {% endif %}
+                    <hr  class="hidden-lg hidde-md" />
+                  </div>
+                  <div class="col-md-6 col-xs-12">
+                  {% if user.customer %}
+                    <a href="{% url 'customer_details' %}" class="btn btn-primary">Update Consumers Details</a>
+                  {% else %}
+                   <a href="{% url 'customer_details' %}" class="btn btn-success">Join Consumer Group</a>
+                   {% endif %}
+                  </div>
+                </div>
+              {% endif %}
+                </div>
+             
+                
+              </div>
+        </div>
+{% endblock %}

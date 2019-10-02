@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+
+ <div class="c-layout-breadcrumbs-1 c-fonts-uppercase c-fonts-bold c-bordered c-bordered-both">
+                <div class="container">
+                    <div class="c-page-title c-pull-left">
+                        <h3 class="c-font-uppercase c-font-sbold">Farmer Signup</h3>
+                    </div>
+                    
+                </div>
+            </div>
+<div class="row">
+
+  <div class="col-md-3">
+</div>
+<div class="col-md-6">
+
+<div class="well" style="background-color: white" >
+
+
+
+
+<form class="login" method="POST" action="{% url 'farmer_signup' %}" class="contact_form">
+  {% csrf_token %}
+ 
+     {% bootstrap_form farmerform %}
+        {% bootstrap_form form %}
+    {% buttons %}
+        <button type="submit" class="button btn btn-success btn-block" style="color: white;">
+             {% trans "Sign In" %}
+        </button>
+    {% endbuttons %}
+    
+    
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <a class="button secondaryAction" href="/accounts/password/reset/">{% trans "Forgot Password?" %}</a>
+  
+</form>
+</div>
+
+  </div>
+</div>
+
+{% endblock %}

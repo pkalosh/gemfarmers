@@ -1,0 +1,56 @@
+{% extends 'new/base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="pad100">
+            <div class="container">
+                <div class="row">
+                    
+                    <div class="col-md-9">
+                        <div class="blog-post">
+                            {% if items %}
+                                {% for item in items %}
+                           
+                            <div class="blog-post-content">
+                               
+                                <div class="post-description">
+                                    <ul class="post-meta">
+                                       
+                                        <li><i class="fa fa-calendar-o"></i>on {{item.date_posted}}.</li>
+                                      
+                                    </ul>
+                                    <h1><a href="{% url 'blog_item' item.id item.slug %}">{{item.title|title}}</a></h1>
+                                </div>
+                                <div class="post-text">
+                                    <p> {{item.body|safe|truncatewords:40}}.</p>
+                                </div>
+                                <a href="{% url 'blog_item' item.id item.slug %}" class="btn btn-primary read-more">Read More ...</a>
+                              
+                            </div>
+                            {% endfor %}
+                                    {% else %}
+                                    <h3>No Updates posted yet. Check again soon....</h3>
+                                    {% endif %}
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        
+                        <div class="widget widget-archive">
+                            <div class="widget-title">
+                                <h3>Our Latest Articles</h3>
+                            </div>
+                            <ul>
+                                {% for item in items %}
+                                    
+                                <li><a href="{% url 'blog_item' item.id item.slug %}">{{item.title|title}}</a></li>
+
+                                {% endfor %}
+                            </ul>
+                        </div>
+                     
+                </div>
+            </div>
+        </section>
+
+{% endblock %}

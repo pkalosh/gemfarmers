@@ -1,0 +1,132 @@
+   {% load staticfiles %}
+    <!-- BEGIN: LAYOUT/HEADERS/HEADER-2 -->
+        <!-- BEGIN: HEADER 2 -->
+        <style type="text/css">
+            .well {
+   background-color: rgba(100, 200, 245, 0.4);
+}
+}
+        </style>
+        <header class="c-layout-header c-layout-header-6" data-minimize-offset="50">
+            <div class="c-topbar" style="min-height: 100px;">
+                <div class="container">
+                    <nav class="c-top-menu">
+                        <ul class="c-links c-theme-ul">
+                           
+                           
+                            {% if user.is_authenticated %}
+                            
+
+                             <li>
+                                <a href="{% url 'dashboard' %}" class=" c-font-uppercase c-font-bold ">My Dashboard</a>
+                            </li>
+                            <li class="c-divider"></li>
+                            <li>
+                                <a href="{% url 'account_logout' %}"  class="c-font-uppercase ">Sign Out</a>
+                            </li>
+                            {% else %}
+                           <li>
+                                <a href="{% url 'signup' %}" class=" c-font-uppercase c-font-bold">Register</a>
+                            </li>
+ <li class="c-divider"></li>
+                            <li>
+                                <a href="{% url 'account_login' %}"  class=" c-font-uppercase c-font-bold">Sign In</a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                        
+                    </nav>
+                    <div class="c-brand">
+                        <a href="/" class="c-logo" style="color: green; font-weight: bold;">
+                        <img src="{% static 'assets/images/logo.png' %}" >  GEM FARMERS  CENTER </a>
+                        <ul class="c-icons c-theme-ul">
+                            <li>
+                                <a href="#">
+                                    <i class="icon-social-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="icon-social-facebook"></i>
+                                </a>
+                            </li>
+                           
+                        </ul>
+                        <button class="c-topbar-toggler" type="button">
+                            <i class="fa fa-ellipsis-v"></i>
+                        </button>
+                        <button class="c-hor-nav-toggler" type="button" data-target=".c-mega-menu">
+                            <span class="c-line"></span>
+                            <span class="c-line"></span>
+                            <span class="c-line"></span>
+                        </button>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="c-navbar">
+                <div class="container">
+                    <!-- BEGIN: BRAND -->
+                    <div class="c-navbar-wrapper clearfix">
+                        <!-- END: BRAND -->
+                        <!-- BEGIN: QUICK SEARCH -->
+                        
+                        <!-- END: QUICK SEARCH -->
+                        <!-- BEGIN: HOR NAV -->
+                        <!-- BEGIN: LAYOUT/HEADERS/MEGA-MENU -->
+                        <!-- BEGIN: MEGA MENU -->
+                        <!-- Dropdown menu toggle on mobile: c-toggler class can be applied to the link arrow or link itself depending on toggle mode -->
+                        <nav class="c-mega-menu c-pull-right c-mega-menu-dark c-mega-menu-dark-mobile c-fonts-uppercase c-fonts-bold">
+                            <ul class="nav navbar-nav c-theme-nav">
+                                <li class="c-{% if nbar == 'home' %}active{% endif %}">
+                                    <a href="/" class="c-link">Home
+                                       
+                                    </a>
+                                </li>
+                                <li class="c-menu-type-classic c-{% if request.resolver_match.url_name == 'about_us' %}active{% endif %}">
+                                    <a href="{% url 'about_us' %}" class="c-link dropdown-toggle">About Us
+                                        <span class="c-arrow c-toggler"></span>
+                                    </a>
+                                </li>
+                                <li class="c-menu-type-classic c-{% if request.resolver_match.url_name == 'our_services' %}active{% endif %}">
+                                    <a href="{% url 'our_services' %}" class="c-link dropdown-toggle">Services
+                                        <span class="c-arrow c-toggler"></span>
+                                    </a>
+                                </li>
+                               
+                                
+                                <li class="c-menu-type-classic c-{% if request.resolver_match.url_name == 'business_hub' %}active{% endif %}">
+                                    <a href="{% url 'business_hub' %}" class="c-link ">Business Hub
+                                        <span class="c-arrow c-toggler"></span>
+                                    </a>
+                                   
+                                    <!-- END: MOBILE VERSION OF THE TAB MEGA MENU -->
+                                </li>
+
+                                 <li class="c-menu-type-classic c-{% if request.resolver_match.url_name == 'contacts' %}active{% endif %}">
+                                    <a href="{% url 'contacts' %}" class="c-link ">Regional Contacts
+                                        <span class="c-arrow c-toggler"></span>
+                                    </a>
+                                </li>
+                                <li class="c-menu-type-classic c-{% if request.resolver_match.url_name == 'our_blog' %}active{% endif %}">
+                                    <a href="{% url 'our_blog' %}" class="c-link ">Blog
+                                        <span class="c-arrow c-toggler"></span>
+                                    </a>
+                                
+                                </li>
+                                
+                                
+                
+                            </ul>
+                        </nav>
+                        <!-- END: MEGA MENU -->
+                        <!-- END: LAYOUT/HEADERS/MEGA-MENU -->
+                        <!-- END: HOR NAV -->
+                    </div>
+                    <!-- BEGIN: LAYOUT/HEADERS/QUICK-CART -->
+                    <!-- BEGIN: CART MENU -->
+                   
+                </div>
+            </div>
+        </header>
+        
